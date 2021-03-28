@@ -35,16 +35,11 @@ require_once ROOT_PATH.'/lib/mysqlDao.php';
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo ROOT_URL?>/assets/css/bootstrap.min.css" rel="stylesheet">
-
-
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
     <link href="<?php echo ROOT_URL?>/assets/css/owl.carousel.css" rel="stylesheet">
     <link href="<?php echo ROOT_URL?>/assets/css/owl.theme.css" rel="stylesheet">
     <link href="<?php echo ROOT_URL?>/assets/css/owl.transitions.css" rel="stylesheet">
-
-
     <link href="<?php echo ROOT_URL?>/assets/css/jquery.fancybox.css" rel="stylesheet">
-
     <link href="<?php echo ROOT_URL?>/assets/css/style.css?<?php echo rand()?>" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -335,7 +330,7 @@ require_once ROOT_PATH.'/lib/mysqlDao.php';
             <div class="hero-slider">
                 <div class="slide">
                     <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                        data-src="https://inveet.id/themes/gold_elegant/images/cover.jpg" class="slider-bg">
+                        data-src="<?php echo ROOT_URL?>/assets/img/cover.jpg" class="slider-bg">
                 </div>
             </div>
             <div class="hero-circle wow fadeIn" data-wow-duration="0.2s" id="hero-circle">
