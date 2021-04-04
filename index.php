@@ -2,6 +2,13 @@
 require_once 'config.php';
 require_once ROOT_PATH.'/lib/dao_utility.php';
 require_once ROOT_PATH.'/lib/mysqlDao.php';
+require_once 'status.php';
+
+
+
+$status=isset($_REQUEST['status'])?$_REQUEST['status']:'';
+$act['ACT'] = isset($_REQUEST['ACT'])?$_REQUEST['ACT']:'';
+
 ?>
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
@@ -15,7 +22,7 @@ require_once ROOT_PATH.'/lib/mysqlDao.php';
     <meta property="og:title" content="Undangan Pernikahan Rafika &amp; Aep" />
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="as3Y8WXJ7uWRk5dO5ZYkC3zUImrFN2A2hKkaPdli">
+    <meta name="csrf-token" content="">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="<?php echo ROOT_URL?>/favicon.ico">
@@ -865,38 +872,36 @@ require_once ROOT_PATH.'/lib/mysqlDao.php';
                         </h2>
                     </div>
                     <div class="mt-modal">
-                        <form action="https://inveet.id/wishes/create" method="POST">
-                            <input type="hidden" name="_token" value="as3Y8WXJ7uWRk5dO5ZYkC3zUImrFN2A2hKkaPdli"> <input
-                                type="hidden" name="wedding_id" value="99">
+
+                        <form action="<?php echo ROOT_URL?>/process.php" method="POST" id="guestBook">
+                            <input type='hidden' name='ACT' value='ADD'>
                             <div class="form-group">
-                                <label for="rsvp">Nama</label>
-                                <input type="text" class="form-control" placeholder="Nama..." name="name" value="">
+                                <label>Nama*</label>
+                                <input type="text" class="form-control" placeholder="Nama..." name="FULLNAME"
+                                    id="FULLNAME" required>
                             </div>
+
+
                             <div class="form-group">
-                                <label for="rsvp">Ucapan dan Doa</label>
-                                <textarea class="form-control" name="comment"
-                                    placeholder="Ucapan dan Doa..."></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="rsvp">Konfirmasi Kehadiran</label>
-                                <select name="rsvp" id="rsvp" class="form-control">
-                                    <option value="1">Hadir</option>
-                                    <option value="0">Tidak Hadir</option>
-                                    <option value="2">Belum Pasti</option>
+                                <label>Konfirmasi Kehadiran*</label>
+                                <select name="STATUS" class="form-control" id="STATUS" required>
+                                    <option value="hadir">Hadir</option>
+                                    <option value="tidak hadir">Tidak Hadir</option>
+                                    <option value="belum pasti">Belum Pasti</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="guest_count">Jumlah Hadir</label>
-                                <select name="guest_count" id="guest_count" class="form-control">
-                                    <option value="1">1 Orang</option>
-                                    <option value="2">2 Orang</option>
-                                    <option value="3">3 Orang</option>
-                                    <option value="4">4 Orang</option>
-                                    <option value="5">5 Orang</option>
-                                </select>
+                                <label>Ucapan dan Doa*</label>
+                                <textarea class="form-control" name="WISH" id="WISH" placeholder="Ucapan dan Doa..."
+                                    required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Lainnya</label>
+                                <input type="text" class="form-control"
+                                    placeholder="Contoh : Teman SMK / Sosial Media ....." name="OTHER" id="OTHER">
                             </div>
                             <div class="mt-5  text-center">
-                                <a href="#" class="theme-btn">Kirim</a>
+                                <button type="submit" class="theme-btn">Kirim</button>
                             </div>
                         </form>
                     </div>
@@ -917,6 +922,9 @@ require_once ROOT_PATH.'/lib/mysqlDao.php';
     <script src="<?php echo ROOT_URL?>/assets/js/particles.min.js"></script>
 
     <script src="<?php echo ROOT_URL?>/assets/js/bootstrap-notify.min.js"></script>
+
+
+
 
     <script>
     var content = {};
