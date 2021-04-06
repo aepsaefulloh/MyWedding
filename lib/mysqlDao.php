@@ -302,12 +302,14 @@ break;
 }
 
 	if ($ftanggal=="tipe1"){
-		echo "$tgl $bulan $tahun";
+		echo "$tgl-$bulan-$tahun";
 	}else if($ftanggal=="tipe2"){
 		echo "$hari, $tgl $bulan $tahun";    
 	}else if($ftanggal=="tipe3"){
 		//echo "$hari, $tgl $bulan $tahun | $waktu WIB";
 		echo "$hari, $tgl/$bulan/$tahun  $waktu WIB";
+	}else if($ftanggal=="tipe4"){
+		echo "eeee";
 	}
 }
 

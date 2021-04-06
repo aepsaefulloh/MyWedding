@@ -463,28 +463,27 @@ $act['ACT'] = isset($_REQUEST['ACT'])?$_REQUEST['ACT']:'';
                                 <div class="col">
                                     <div class="card-body">
                                         <h4 class="heading-font-type pb-2"></h4>
-                                        <img src="https://inveet.id/inveet/img/date.png" alt="Resepsi Date" height="40"
-                                            width="40">
-                                        <p class="font-location mt-2">
-                                        <h5>
-                                            <strong>
-                                                01 July 2022
-                                            </strong>
-                                        </h5>
-                                        18:12
-                                        - 18:12 WIB
-                                        </p>
-                                        <img src="https://inveet.id/inveet/img/location.png" alt="Resepsi Date"
+                                        <img src="<?php echo ROOT_URL?>/assets/img/date.png" alt="Resepsi Date"
                                             height="40" width="40">
                                         <p class="font-location mt-2">
                                         <h5>
                                             <strong>
-                                                Edelweiss Wedding Hall
+                                                06 Juni 2021
                                             </strong>
                                         </h5>
-                                        Sport Club Goldland Karawaci, Gedung Edelweiss no. 1 dan 2, West Panunggangan,
-                                        Cibodas, Jl. Palem Raja Raya, Bencongan Indah, Kec. Klp. Dua, Tangerang City,
-                                        Banten 15810
+                                        10.00 - Selesai
+                                        </p>
+                                        <img src="<?php echo ROOT_URL?>/assets/img/location.png" alt="Resepsi Date"
+                                            height="40" width="40">
+                                        <p class="font-location mt-2">
+                                        <h5>
+                                            <strong>
+                                                Lokasi
+                                            </strong>
+                                        </h5>
+                                        Jl. H. Alih Blok Perintis No.13, RT.6/RW.7, Bintaro,
+                                        Kec. Pesanggrahan, Kota
+                                        Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12330
                                         </p>
                                         <br>
                                     </div>
@@ -541,12 +540,12 @@ $act['ACT'] = isset($_REQUEST['ACT'])?$_REQUEST['ACT']:'';
                                     <br>
                                     <div class="google-maps" id="google-maps">
                                         <iframe
-                                            src="https://www.google.com/maps?q=-6.224390999999999,106.6142835&hl=id;z=14&output=embed"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1362.243161619007!2d106.76745628765086!3d-6.275968539991688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f04ba225d58b%3A0x752204d711876f80!2sJl.%20H.%20Alih%20Blok%20Perintis%20No.13%2C%20RT.6%2FRW.7%2C%20Bintaro%2C%20Kec.%20Pesanggrahan%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012330!5e0!3m2!1sen!2sid!4v1617708149813!5m2!1sen!2sid"
                                             width="400" height="300" frameborder="0" allowfullscreen=""></iframe>
                                     </div>
                                     <div class="form-group">
                                         <br>
-                                        <a href="https://www.google.com/maps/dir/?api=1&destination=-6.224390999999999,106.6142835&dir_action=navigate"
+                                        <a href="https://goo.gl/maps/od7UE35cCmUVCH4n7" target="_blank"
                                             class="theme-btn mr-2 mb-2">Arahkan ke Lokasi</a>
                                     </div>
                                 </div>
@@ -582,44 +581,7 @@ $act['ACT'] = isset($_REQUEST['ACT'])?$_REQUEST['ACT']:'';
                         <div class="section-title">
                             <h2 class="heading-font-type">Buku Tamu</h2>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12">
-                                <div id="testimonials-list" class="owl-carousel">
-                                    <div class="item">
-                                        <div class="shadow-effect">
-                                            <p>
-                                                Selamat ya kak atas pernikahannya, semoga bahagia selalu 😊<br>
-                                                Terima kasih sudah menggunakan <a href="https://inveet.id">inveet.id</a>
-                                                ✨
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-name">
-                                            <strong>
-                                                Dias Taufik Rahman
-                                            </strong>
-                                            <br>
-                                            <div class="small">
-                                                Founder Inveet.id
-                                                <br>
-                                                @diastaufik
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="shadow-effect">
-                                            <p>
-                                                Selamat yaaa semoga dilancarkan sampai hari H nyaa. aamiiin
-                                            </p>
-                                        </div>
-                                        <div class="testimonial-name">
-                                            <strong>
-                                                Keisha
-                                            </strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                     
                         <div class="text-center">
                             <button type="button" class="theme-btn" data-toggle="modal" data-target="#wishModal">
                                 Buka Buku Tamu
@@ -627,10 +589,28 @@ $act['ACT'] = isset($_REQUEST['ACT'])?$_REQUEST['ACT']:'';
                         </div>
                     </div>
                 </div>
-            </div> <!-- end container -->
+                <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="wishComment">
+                                    <?php
+                                    $varCom['LIMIT'] = 30;
+                                    $list1 = getRecord('tbl_guest', $varCom);
+                                    foreach($list1['RESULT'] as $list1){
+                                    ?>
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h5 class="mt-0"> <?php echo $list1['FULLNAME']?></h5>
+                                            <p> <?php echo $list1['WISH']?></p>
+                                        </div>
+                                    </div>
+                                    <?php }?>
+                                </div>
+                            </div>
+                        </div>
+            </div>
         </section>
 
-        <section
+        <!-- <section
             style="display: block; background: #ca9d53; color: white; visibility: visible!important; font-size: 12px; height: 40px; line-height: 20px; padding: 10px 0;"
             class="text-center">
             Wedding Invitation by
@@ -641,7 +621,7 @@ $act['ACT'] = isset($_REQUEST['ACT'])?$_REQUEST['ACT']:'';
                     undangan pernikahan online
                 </a>
             </div>
-        </section>
+        </section> -->
 
     </div>
     <!-- end of page-wrapper -->
@@ -1040,7 +1020,7 @@ $act['ACT'] = isset($_REQUEST['ACT'])?$_REQUEST['ACT']:'';
                     }
                 }(), s(".site-header .navigation").length && (o = s(".site-header .navigation"), r =
                     "sticky-header", o.addClass("original").clone().insertAfter(o).addClass(r).removeClass(
-                        "original")), s("#clock").length && s("#clock").countdown("2022/07/01 12:00:00",
+                        "original")), s("#clock").length && s("#clock").countdown("2021/06/06 10:00:00",
                     function(e) {
                         s(this).html(e.strftime(
                             '<div class="box"><div>%D</div> <span>Hari</span> </div><div class="box"><div>%H</div> <span>Jam</span> </div><div class="box"><div>%M</div> <span>Menit</span> </div><div class="box"><div>%S</div> <span>Detik</span> </div>'
